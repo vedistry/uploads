@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Sample Code</title>
+</head>
+<body>
+<p><a id="mobileShareButton" href="test.html">Sample Text</a></p>
+<script type="text/javascript">
+	// Detect if the user is on a mobile device
+	const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+	// Show the appropriate elements based on device type
+	if (isMobileDevice && navigator.share) {
+		// Mobile share logic
+		document.getElementById('mobileShareButton').addEventListener('click', function(event) {
+			navigator.share({
+				title: 'Check this out!',
+				url: window.location.href
+			}).catch(error => console.log('Error sharing:', error));
+		});
+	}
+</script>
+</body>
+</html>
